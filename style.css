@@ -24,7 +24,6 @@ html {
 
 .container {
   width: 42%;
-
   position: absolute;
   top: 50%;
   left: 50%;
@@ -113,11 +112,7 @@ html {
 }
 @media only screen and (max-width: 900px) {
   .cta-container {
-    /* grid-row: 2/3; */
     padding: 1.5rem 1.5rem 1.5rem 1.5rem;
-    /*
-    background-color: var(--primary-color);
-    border-radius: 0 0 0 1rem; */
   }
 }
 @media only screen and (max-width: 400px) {
