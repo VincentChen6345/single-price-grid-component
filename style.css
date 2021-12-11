@@ -8,9 +8,13 @@
 
 html {
   font-size: 62.5%;
+}
+body {
+  font-size: 1.6rem;
   background-color: rgb(225, 235, 244);
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 400;
+  line-height: 1.6;
 }
 /*Variables*/
 :root {
@@ -20,42 +24,39 @@ html {
   --secondary-color-light: rgb(193, 219, 106);
   --color-white: white;
   --color-p1-text: rgb(189, 192, 205);
+
+  /* 1em=16px; */
+  /* breakpoints */
+  /* 700px */
+  --bp-medium: 43.75em;
+  /* //900px */
+  --bp-large: 56.25em;
+  /* 400px  */
+  --bp-small: 25em;
 }
+/*breakpoints*/
 
 .container {
-  width: 42%;
+  width: 55rem;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  /* grid-template-rows: 1fr minmax(1fr, max-content); */
+
   color: var(--color-white);
   box-shadow: 0.5rem 0.5rem 1rem rgb(0, 0, 0, 0.1);
   border-radius: 1rem 1rem 1rem 1rem;
 }
-@media only screen and (max-width: 900px) {
-  .container {
-    width: 50%;
-  }
-}
-@media only screen and (max-width: 740px) {
-  .container {
-    width: 60%;
-  }
-}
-@media only screen and (max-width: 550px) {
-  .container {
-    width: 70%;
-  }
-}
-@media only screen and (max-width: 475px) {
+
+@media only screen and (max-width: 43.75em) {
   .container {
     width: 80%;
   }
 }
-@media only screen and (max-width: 400px) {
+
+@media only screen and (max-width: 25em) {
   .container {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr;
@@ -68,12 +69,12 @@ html {
   background-color: var(--color-white);
   border-radius: 1rem 1rem 0 0;
 }
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 56.25em) {
   .description-container {
     padding: 1.5rem 1.5rem 1.5rem 1.5rem;
   }
 }
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 25em) {
   .description-container {
     grid-row: 1/2;
     grid-column: 1/2;
@@ -82,16 +83,16 @@ html {
 .heading_primary {
   color: var(--primary-color);
   font-weight: 600;
-  line-height: 3rem;
 }
-.heading_secondary {
+em {
   color: var(--secondary-color);
-  font-weight: 400;
-  line-height: 4rem;
+  font-weight: 600;
+
+  font-style: normal;
+  line-height: 2.5;
 }
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 25em) {
   .heading_secondary {
-    line-height: 2rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
   }
@@ -100,7 +101,6 @@ html {
   color: var(--color-p1-text);
   font-weight: 400;
   font-size: 1.3rem;
-  line-height: 2rem;
 }
 
 .cta-container {
@@ -110,12 +110,12 @@ html {
   background-color: var(--primary-color);
   border-radius: 0 0 0 1rem;
 }
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 56.25em) {
   .cta-container {
     padding: 1.5rem 1.5rem 1.5rem 1.5rem;
   }
 }
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 25em) {
   .cta-container {
     grid-row: 2/3;
     grid-column: 1/2;
@@ -132,7 +132,6 @@ html {
   align-items: center;
   font-size: 1.3rem;
   font-weight: 300;
-  margin-bottom: 1rem;
 }
 .cost-amount {
   font-size: 3rem;
@@ -146,19 +145,27 @@ html {
   margin-top: 2rem;
   text-align: center;
   border-radius: 0.5rem;
-  padding: 1.5rem 3rem;
+  padding: 1.3rem 3rem;
   background-color: var(--secondary-color);
   font-size: 1.3rem;
   box-shadow: 0.5rem 0.5rem 1rem rgb(0, 0, 0, 0.1);
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  width: 100%;
 }
 
 .sign-up-button:hover {
   background-color: var(--secondary-color-light);
 }
-.btn-link {
-  color: inherit;
-  text-decoration: none;
+
+.sign-up-button:focus {
+  outline: none;
 }
+.sign-up-button:focus-visible {
+  outline: 0.3rem solid lightyellow;
+}
+
 .about-container {
   grid-row: 2/3;
   grid-column: 2/3;
@@ -166,12 +173,12 @@ html {
   background-color: var(--primary-color-light);
   border-radius: 0 0 1rem 0;
 }
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 56.25em) {
   .about-container {
     padding: 1.5rem 1.5rem 1.5rem 1.5rem;
   }
 }
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 25em) {
   .about-container {
     grid-row: 3/4;
     grid-column: 1/2;
@@ -186,15 +193,10 @@ html {
 .why-us-list {
   font-size: 1.2rem;
   list-style: none;
-  line-height: 1.7rem;
 }
 
 .list-link {
   text-decoration: none;
   color: white;
   opacity: 50%;
-}
-.list-link:hover {
-  opacity: 70%;
-  text-decoration: underline;
 }
